@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(145deg, #f5f7fa 0%, #e9ecf2 100%);
@@ -17,20 +19,23 @@
             line-height: 1.6;
             padding: 30px 20px;
         }
+
         .container {
             max-width: 1000px;
             margin: 0 auto;
         }
+
         .header {
             text-align: center;
             margin-bottom: 40px;
             padding: 25px 20px;
-            background: rgba(255,255,255,0.6);
+            background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(10px);
             border-radius: 40px;
-            box-shadow: 0 20px 35px -8px rgba(0,20,40,0.2);
-            border: 1px solid rgba(255,255,255,0.5);
+            box-shadow: 0 20px 35px -8px rgba(0, 20, 40, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.5);
         }
+
         .header h1 {
             font-size: 2.2rem;
             font-weight: 600;
@@ -39,6 +44,7 @@
             -webkit-text-fill-color: transparent;
             margin-bottom: 8px;
         }
+
         .header .identity {
             font-size: 1.2rem;
             background: #1e2b3a;
@@ -47,22 +53,25 @@
             border-radius: 50px;
             color: white;
             letter-spacing: 0.5px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
+
         .card {
-            background: rgba(255,255,255,0.75);
+            background: rgba(255, 255, 255, 0.75);
             backdrop-filter: blur(8px);
             border-radius: 32px;
             padding: 28px 30px;
             margin-bottom: 30px;
-            box-shadow: 0 15px 30px -12px rgba(0,30,60,0.25);
-            border: 1px solid rgba(255,255,255,0.6);
+            box-shadow: 0 15px 30px -12px rgba(0, 30, 60, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.6);
             transition: transform 0.2s;
         }
+
         .card:hover {
             transform: translateY(-3px);
-            background: rgba(255,255,255,0.85);
+            background: rgba(255, 255, 255, 0.85);
         }
+
         .section-title {
             font-size: 1.8rem;
             font-weight: 650;
@@ -71,6 +80,7 @@
             margin-bottom: 25px;
             color: #0a1a2c;
         }
+
         .sub-title {
             font-size: 1.4rem;
             font-weight: 600;
@@ -79,6 +89,7 @@
             border-bottom: 2px dashed #a0c0e0;
             padding-bottom: 5px;
         }
+
         .code-block {
             background: #0e1e2f;
             border-radius: 24px;
@@ -87,12 +98,14 @@
             overflow-x: auto;
             box-shadow: inset 0 0 0 1px #3a4e6b, 0 10px 20px -5px #00000030;
         }
+
         pre {
             font-family: 'Fira Code', 'JetBrains Mono', 'Cascadia Code', monospace;
             font-size: 0.95rem;
             color: #e3f2fd;
             tab-size: 2;
         }
+
         .output-note {
             background: #d4e3fd;
             border-radius: 20px;
@@ -102,6 +115,7 @@
             font-weight: 500;
             border-left: 6px solid #1e4b8f;
         }
+
         .badge {
             display: inline-block;
             background: #2a5298;
@@ -113,19 +127,21 @@
             letter-spacing: 0.3px;
             margin-right: 8px;
         }
+
         hr {
             border: none;
             height: 2px;
             background: linear-gradient(to right, transparent, #8ba8cf, transparent);
             margin: 20px 0;
         }
+
         .footer-note {
             text-align: center;
             margin-top: 40px;
             font-size: 0.95rem;
             color: #4a5f7a;
         }
-        
+
         /* Tombol Run */
         .run-btn {
             background: linear-gradient(135deg, #2a5298, #1e3c72);
@@ -143,17 +159,17 @@
             gap: 10px;
             box-shadow: 0 5px 15px rgba(42, 82, 152, 0.3);
         }
-        
+
         .run-btn:hover {
             background: linear-gradient(135deg, #1e3c72, #0f2a4f);
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(42, 82, 152, 0.4);
         }
-        
+
         .run-btn:active {
             transform: translateY(0);
         }
-        
+
         /* Modal/Popup Styles */
         .modal {
             display: none;
@@ -163,16 +179,21 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(5px);
             animation: fadeIn 0.3s;
         }
-        
+
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
-        
+
         .modal-content {
             background: white;
             margin: 5% auto;
@@ -180,21 +201,22 @@
             width: 90%;
             max-width: 600px;
             border-radius: 30px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
             animation: slideIn 0.4s;
         }
-        
+
         @keyframes slideIn {
             from {
                 transform: translateY(-100px);
                 opacity: 0;
             }
+
             to {
                 transform: translateY(0);
                 opacity: 1;
             }
         }
-        
+
         .modal-header {
             display: flex;
             justify-content: space-between;
@@ -203,12 +225,12 @@
             padding-bottom: 15px;
             border-bottom: 3px solid #2a5298;
         }
-        
+
         .modal-header h3 {
             color: #1e2b3a;
             font-size: 1.5rem;
         }
-        
+
         .close-btn {
             background: none;
             border: none;
@@ -217,15 +239,15 @@
             color: #999;
             transition: color 0.3s;
         }
-        
+
         .close-btn:hover {
             color: #2a5298;
         }
-        
+
         .modal-body {
             margin-bottom: 25px;
         }
-        
+
         .link-list {
             display: flex;
             flex-direction: column;
@@ -234,7 +256,7 @@
             overflow-y: auto;
             padding: 5px;
         }
-        
+
         .link-item {
             background: linear-gradient(145deg, #f5f7fa, #e9ecf2);
             padding: 15px 20px;
@@ -245,18 +267,18 @@
             transition: all 0.3s;
             border-left: 5px solid #2a5298;
         }
-        
+
         .link-item:hover {
             transform: translateX(5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
-        
+
         .link-item span {
             font-weight: 600;
             color: #1e2b3a;
             font-size: 1rem;
         }
-        
+
         .link-item a {
             background: #2a5298;
             color: white;
@@ -270,12 +292,12 @@
             align-items: center;
             gap: 5px;
         }
-        
+
         .link-item a:hover {
             background: #1e3c72;
             transform: scale(1.05);
         }
-        
+
         .modal-footer {
             display: flex;
             justify-content: flex-end;
@@ -283,7 +305,7 @@
             padding-top: 15px;
             border-top: 2px dashed #a0c0e0;
         }
-        
+
         .modal-footer button {
             background: #f0f4f8;
             border: none;
@@ -295,12 +317,12 @@
             cursor: pointer;
             transition: all 0.3s;
         }
-        
+
         .modal-footer button:hover {
             background: #2a5298;
             color: white;
         }
-        
+
         /* Active link highlight */
         .link-item.active {
             background: #d4e3fd;
@@ -308,31 +330,33 @@
         }
     </style>
 </head>
+
 <body>
-<div class="container">
-    <!-- HEADER DENGAN IDENTITAS BARU -->
-    <div class="header">
-        <h1>📘 Pilar OOP Dart & Constructor</h1>
-        <div class="identity">Muhammad Bagas putra andeza | 251410003 | SI2A</div>
-        <p style="margin-top: 15px; color: #2c3e50;">Ringkasan konsep class, constructor, enkapsulasi, getter/setter</p>
-    </div>
+    <div class="container">
+        <!-- HEADER DENGAN IDENTITAS BARU -->
+        <div class="header">
+            <h1>📘 Pilar OOP Dart & Constructor</h1>
+            <div class="identity">Muhammad Bagas putra andeza | 251410003 | SI2A</div>
+            <p style="margin-top: 15px; color: #2c3e50;">Ringkasan konsep class, constructor, enkapsulasi, getter/setter
+            </p>
+        </div>
 
-    <!-- PENDAHULUAN OOP -->
-    <div class="card">
-        <div class="section-title">🔷 Dasar OOP di Dart</div>
-        <ul style="margin-left: 25px; font-size: 1.1rem;">
-            <li><span class="badge">OOP</span> Paradigma berfokus pada objek</li>
-            <li><span class="badge">Class</span> Blueprint / cetakan</li>
-            <li><span class="badge">Object</span> Instance nyata dari class</li>
-            <li><span class="badge">Constructor</span> Method khusus inisialisasi</li>
-        </ul>
-    </div>
+        <!-- PENDAHULUAN OOP -->
+        <div class="card">
+            <div class="section-title">🔷 Dasar OOP di Dart</div>
+            <ul style="margin-left: 25px; font-size: 1.1rem;">
+                <li><span class="badge">OOP</span> Paradigma berfokus pada objek</li>
+                <li><span class="badge">Class</span> Blueprint / cetakan</li>
+                <li><span class="badge">Object</span> Instance nyata dari class</li>
+                <li><span class="badge">Constructor</span> Method khusus inisialisasi</li>
+            </ul>
+        </div>
 
-    <!-- CLASS BUKU -->
-    <div class="card" id="buku-card">
-        <div class="section-title">📖 Class Buku (Constructor Dasar)</div>
-        <div class="code-block">
-<pre>// Nama : Muhammad Bagas putra andeza
+        <!-- CLASS BUKU -->
+        <div class="card" id="buku-card">
+            <div class="section-title">📖 Class Buku (Constructor Dasar)</div>
+            <div class="code-block">
+                <pre>// Nama : Muhammad Bagas putra andeza
 // Nim  : 251410003
 // Kelas: SI2A
 
@@ -345,30 +369,30 @@ void main() {
     var buku1 = Buku('Belajar Dart OOP jilid 1 Bersama Babe');
     print('Judul Buku: ${buku1.judul}');
 }</pre>
+            </div>
+            <div class="output-note">📌 Output: Judul Buku: Belajar Dart OOP jilid 1 Bersama Babe</div>
+            <button class="run-btn" onclick="openModal('buku')">
+                <span>▶</span> Run di DartPad
+            </button>
         </div>
-        <div class="output-note">📌 Output: Judul Buku: Belajar Dart OOP jilid 1 Bersama Babe</div>
-        <button class="run-btn" onclick="openModal('buku')">
-            <span>▶</span> Run di DartPad
-        </button>
-    </div>
 
-    <!-- JENIS CONSTRUCTOR -->
-    <div class="card">
-        <div class="section-title">🧩 Jenis-jenis Constructor</div>
-        <ol style="margin-left: 25px; font-weight: 500;">
-            <li>Default Constructor: ClassName()</li>
-            <li>Named Constructor: ClassName.name()</li>
-            <li>Parameterized Constructor: ClassName(this.param)</li>
-            <li>Constant Constructor: const ClassName()</li>
-            <li>Factory Constructor (lanjut)</li>
-        </ol>
-    </div>
+        <!-- JENIS CONSTRUCTOR -->
+        <div class="card">
+            <div class="section-title">🧩 Jenis-jenis Constructor</div>
+            <ol style="margin-left: 25px; font-weight: 500;">
+                <li>Default Constructor: ClassName()</li>
+                <li>Named Constructor: ClassName.name()</li>
+                <li>Parameterized Constructor: ClassName(this.param)</li>
+                <li>Constant Constructor: const ClassName()</li>
+                <li>Factory Constructor (lanjut)</li>
+            </ol>
+        </div>
 
-    <!-- NAMED CONSTRUCTOR MOBIL -->
-    <div class="card" id="mobil-card">
-        <div class="section-title">🚗 Named Constructor – Class Mobil</div>
-        <div class="code-block">
-<pre>// Nama : Muhammad Bagas putra andeza
+        <!-- NAMED CONSTRUCTOR MOBIL -->
+        <div class="card" id="mobil-card">
+            <div class="section-title">🚗 Named Constructor – Class Mobil</div>
+            <div class="code-block">
+                <pre>// Nama : Muhammad Bagas putra andeza
 // Nim  : 251410003
 // Kelas: SI2A
 
@@ -404,18 +428,18 @@ void main() {
     print('Mobil 4 (.dariJson): $m4');
     print('--- SELESAI DEMONSTRASI ---');
 }</pre>
+            </div>
+            <div class="output-note">✅ Demonstrasi named constructor .baru dan .dariJson</div>
+            <button class="run-btn" onclick="openModal('mobil')">
+                <span>▶</span> Run di DartPad
+            </button>
         </div>
-        <div class="output-note">✅ Demonstrasi named constructor .baru dan .dariJson</div>
-        <button class="run-btn" onclick="openModal('mobil')">
-            <span>▶</span> Run di DartPad
-        </button>
-    </div>
 
-    <!-- CONSTANT CONSTRUCTOR WARNA -->
-    <div class="card" id="warna-card">
-        <div class="section-title">🎨 Constant Constructor – Class Warna</div>
-        <div class="code-block">
-<pre>// Nama : Muhammad Bagas putra andeza
+        <!-- CONSTANT CONSTRUCTOR WARNA -->
+        <div class="card" id="warna-card">
+            <div class="section-title">🎨 Constant Constructor – Class Warna</div>
+            <div class="code-block">
+                <pre>// Nama : Muhammad Bagas putra andeza
 // Nim  : 251410003
 // Kelas: SI2A
 
@@ -433,18 +457,18 @@ void main() {
     print(scalletLagi);
     print('Apakah instance sama? ${identical(scallet, scalletLagi)}');
 }</pre>
+            </div>
+            <div class="output-note">📌 Objek const dengan nilai berbeda akan berbeda instance.</div>
+            <button class="run-btn" onclick="openModal('warna')">
+                <span>▶</span> Run di DartPad
+            </button>
         </div>
-        <div class="output-note">📌 Objek const dengan nilai berbeda akan berbeda instance.</div>
-        <button class="run-btn" onclick="openModal('warna')">
-            <span>▶</span> Run di DartPad
-        </button>
-    </div>
 
-    <!-- INITIALIZER LIST TITIK -->
-    <div class="card" id="titik-card">
-        <div class="section-title">📐 Initializer List – Class Titik</div>
-        <div class="code-block">
-<pre>// Nama : Muhammad Bagas putra andeza
+        <!-- INITIALIZER LIST TITIK -->
+        <div class="card" id="titik-card">
+            <div class="section-title">📐 Initializer List – Class Titik</div>
+            <div class="code-block">
+                <pre>// Nama : Muhammad Bagas putra andeza
 // Nim  : 251410003
 // Kelas: SI2A
 
@@ -469,18 +493,18 @@ void main() {
     var t3 = Titik(-2.0, -4.0);
     print('Titik 3: x = ${t3.x}, y = ${t3.y}');
 }</pre>
+            </div>
+            <div class="output-note">✅ Initializer list memastikan nilai negatif diubah menjadi 0.</div>
+            <button class="run-btn" onclick="openModal('titik')">
+                <span>▶</span> Run di DartPad
+            </button>
         </div>
-        <div class="output-note">✅ Initializer list memastikan nilai negatif diubah menjadi 0.</div>
-        <button class="run-btn" onclick="openModal('titik')">
-            <span>▶</span> Run di DartPad
-        </button>
-    </div>
 
-    <!-- PRAKTIK MULTIPLE CONSTRUCTOR MAHASISWA -->
-    <div class="card" id="mahasiswa-card">
-        <div class="section-title">👨‍🎓 Praktik 1 – Class Mahasiswa</div>
-        <div class="code-block">
-<pre>// Nama : Muhammad Bagas putra andeza
+        <!-- PRAKTIK MULTIPLE CONSTRUCTOR MAHASISWA -->
+        <div class="card" id="mahasiswa-card">
+            <div class="section-title">👨‍🎓 Praktik 1 – Class Mahasiswa</div>
+            <div class="code-block">
+                <pre>// Nama : Muhammad Bagas putra andeza
 // Nim  : 251410003
 // Kelas: SI2A
 
@@ -508,18 +532,18 @@ void main() {
     m2.info();
     m3.info();
 }</pre>
+            </div>
+            <div class="output-note">👤 Menampilkan tiga cara instansiasi berbeda.</div>
+            <button class="run-btn" onclick="openModal('mahasiswa')">
+                <span>▶</span> Run di DartPad
+            </button>
         </div>
-        <div class="output-note">👤 Menampilkan tiga cara instansiasi berbeda.</div>
-        <button class="run-btn" onclick="openModal('mahasiswa')">
-            <span>▶</span> Run di DartPad
-        </button>
-    </div>
 
-    <!-- ENKAPSULASI DASAR PERSON -->
-    <div class="card" id="person-card">
-        <div class="section-title">🔒 Enkapsulasi – Class Person</div>
-        <div class="code-block">
-<pre>// Nama   : Muhammad Bagas Putra Andeza
+        <!-- ENKAPSULASI DASAR PERSON -->
+        <div class="card" id="person-card">
+            <div class="section-title">🔒 Enkapsulasi – Class Person</div>
+            <div class="code-block">
+                <pre>// Nama   : Muhammad Bagas Putra Andeza
 // Nim    : 251410003
 // Kelas  : Si2A 
 
@@ -542,18 +566,18 @@ void main() {
   p1.setNama = 'Muhammad Bagas Putra Andeza';
   print('Nama (via Setter): ${p1.getNama()}');
 }</pre>
+            </div>
+            <button class="run-btn" onclick="openModal('person')">
+                <span>▶</span> Run di DartPad
+            </button>
         </div>
-        <button class="run-btn" onclick="openModal('person')">
-            <span>▶</span> Run di DartPad
-        </button>
-    </div>
 
-    <!-- GETTER SETTER PERSON -->
-    <div class="card" id="getter-card">
-        <div class="section-title">⚙️ Getter & Setter</div>
-        <div class="sub-title">🔹 Contoh Person</div>
-        <div class="code-block">
-<pre>// Nama : Muhammad Bagas putra andeza
+        <!-- GETTER SETTER PERSON -->
+        <div class="card" id="getter-card">
+            <div class="section-title">⚙️ Getter & Setter</div>
+            <div class="sub-title">🔹 Contoh Person</div>
+            <div class="code-block">
+                <pre>// Nama : Muhammad Bagas putra andeza
 // Nim  : 251410003
 // Kelas: SI2A
 
@@ -574,17 +598,17 @@ void main() {
     p1.setName = 'Muhammad Bagas putra andeza';
     print('Nama (via Setter): ${p1.getName()}');
 }</pre>
+            </div>
+            <button class="run-btn" onclick="openModal('getter')">
+                <span>▶</span> Run di DartPad
+            </button>
         </div>
-        <button class="run-btn" onclick="openModal('getter')">
-            <span>▶</span> Run di DartPad
-        </button>
-    </div>
 
-    <!-- CLASS PRODUK -->
-    <div class="card" id="produk-card">
-        <div class="sub-title">🔹 Class Produk (Validasi)</div>
-        <div class="code-block">
-<pre>// Nama : Muhammad Bagas putra andeza
+        <!-- CLASS PRODUK -->
+        <div class="card" id="produk-card">
+            <div class="sub-title">🔹 Class Produk (Validasi)</div>
+            <div class="code-block">
+                <pre>// Nama : Muhammad Bagas putra andeza
 // Nim  : 251410003
 // Kelas: SI2A
 
@@ -616,17 +640,17 @@ void main() {
     p1.nama = 'AC';
     p1.harga = -1000.0;
 }</pre>
+            </div>
+            <button class="run-btn" onclick="openModal('produk')">
+                <span>▶</span> Run di DartPad
+            </button>
         </div>
-        <button class="run-btn" onclick="openModal('produk')">
-            <span>▶</span> Run di DartPad
-        </button>
-    </div>
 
-    <!-- CLASS USER -->
-    <div class="card" id="user-card">
-        <div class="section-title">👥 Class User</div>
-        <div class="code-block">
-<pre>// Nama : Muhammad Bagas putra andeza
+        <!-- CLASS USER -->
+        <div class="card" id="user-card">
+            <div class="section-title">👥 Class User</div>
+            <div class="code-block">
+                <pre>// Nama : Muhammad Bagas putra andeza
 // Nim  : 251410003
 // Kelas: SI2A
 
@@ -658,17 +682,17 @@ void main() {
     u1.email = 'bagas@gmail.com';
     u1.info();
 }</pre>
+            </div>
+            <button class="run-btn" onclick="openModal('user')">
+                <span>▶</span> Run di DartPad
+            </button>
         </div>
-        <button class="run-btn" onclick="openModal('user')">
-            <span>▶</span> Run di DartPad
-        </button>
-    </div>
 
-    <!-- STUDI KASUS LOGIN -->
-    <div class="card" id="studi-card">
-        <div class="section-title">🔐 Studi Kasus Login</div>
-        <div class="code-block">
-<pre>// Nama : Muhammad Bagas putra andeza
+        <!-- STUDI KASUS LOGIN -->
+        <div class="card" id="studi-card">
+            <div class="section-title">🔐 Studi Kasus Login</div>
+            <div class="code-block">
+                <pre>// Nama : Muhammad Bagas putra andeza
 // Nim  : 251410003
 // Kelas: SI2A
 
@@ -677,4 +701,101 @@ class User {
     String _password;
     User(this._username, this._password);
     String get username => _username;
+
+    bool login(String username, String password) {
+        return _username == username && _password == password;
+    }
+
+    void gantiPassword(String lama, String baru) {
+        if (_password == lama) {
+            if (baru.length >= 8) {
+                _password = baru;
+                print('Password berhasil diubah.');
+            } else {
+                print('Gagal: Password baru minimal 8 karakter.');
+            }
+        } else {
+            print('Gagal: Password lama salah.');
+        }
+    }
+}
+
+void main() {
+    var u1 = User('admin_bagas', 'rahasia123');
+    print('Login 1: ${u1.login('admin_bagas', 'rahasia123')}');
+    print('Login 2: ${u1.login('admin_bagas', 'salahpass')}');
     
+    u1.gantiPassword('rahasia123', 'bagasBaru2024');
+    print('Login 3 (Password baru): ${u1.login('admin_bagas', 'bagasBaru2024')}');
+}</pre>
+            </div>
+            <button class="run-btn" onclick="openModal('studi')">
+                <span>▶</span> Run di DartPad
+            </button>
+        </div>
+
+        <div class="footer-note">
+            <p>Dibuat oleh Muhammad Bagas putra andeza | Tugas 3 Pemrograman Mobile</p>
+            <p>© 2024 Universitas Bina Darma</p>
+        </div>
+    </div>
+
+    <!-- Modal untuk DartPad -->
+    <div id="dartModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>🚀 DartPad Interactive</h3>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <iframe id="dartFrame" src=""
+                    style="width: 100%; height: 500px; border: none; border-radius: 15px;"></iframe>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeModal()">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const dartUrls = {
+            'buku': 'https://dartpad.dev/861f41fd358c420dadad6e694704e802',
+            'mobil': 'https://dartpad.dev/9b80b214a8edcc5f29a897146c57dcb9',
+            'warna': 'https://dartpad.dev/0643f6faf41fbff2ce328d0b3de446e0',
+            'titik': 'https://dartpad.dev/1dccb1e32b401cb8327995b780706623',
+            'mahasiswa': 'https://dartpad.dev/af24234822ea65feb695d6ccd864bc04',
+            'person': 'https://dartpad.dev/4f351fae9b3ac9a5881110a093c4c7ee',
+            'getter': 'https://dartpad.dev/6f0927f3ede78f5f09a51bf4fa9387ef',
+            'produk': 'https://dartpad.dev/0dddde9c261ffb74b1b329bed476f842',
+            'user': 'https://dartpad.dev/98781a0a46e6c66f64d43d8652a6c100',
+            'studi': 'https://dartpad.dev/a8292d85840f253ac4ef19af88f7d182'
+        };
+
+        function openModal(id) {
+            const modal = document.getElementById('dartModal');
+            const iframe = document.getElementById('dartFrame');
+            if (dartUrls[id]) {
+                iframe.src = dartUrls[id];
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('dartModal');
+            const iframe = document.getElementById('dartFrame');
+            modal.style.display = 'none';
+            iframe.src = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = function (event) {
+            const modal = document.getElementById('dartModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+
+</html>
