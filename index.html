@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Laporan OOP Dart - Muhammad Bagas Putra Andeza</title>
+<title>Praktikum OOP Dart</title>
 
 <style>
 
 body{
 font-family: Arial, sans-serif;
 margin:0;
-background:linear-gradient(180deg,#c9d6e6,#e7edf5);
-padding:30px;
+padding:40px;
+background:linear-gradient(#cfd9e6,#e6ecf4);
 }
 
 h1{
@@ -25,32 +26,31 @@ background:white;
 padding:25px;
 margin-bottom:25px;
 border-radius:10px;
-box-shadow:0 3px 10px rgba(0,0,0,0.1);
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
 }
 
 .section h2{
 border-left:5px solid #3b82f6;
 padding-left:10px;
-color:#2c3e50;
 }
 
 .code{
+display:none;
 background:#f4f6f9;
 padding:15px;
-border-radius:8px;
-overflow:auto;
+border-radius:6px;
+margin-top:10px;
 font-family:monospace;
 white-space:pre-wrap;
-margin-top:15px;
 }
 
 button{
 margin-top:10px;
 padding:8px 15px;
+border:none;
 background:#3b82f6;
 color:white;
-border:none;
-border-radius:6px;
+border-radius:5px;
 cursor:pointer;
 }
 
@@ -58,24 +58,39 @@ button:hover{
 background:#2563eb;
 }
 
-ul{
-margin-top:10px;
+</style>
+
+<script>
+
+function lihatKode(id){
+var x = document.getElementById(id);
+
+if(x.style.display==="none"){
+x.style.display="block";
+}else{
+x.style.display="none";
 }
 
-</style>
+}
+
+</script>
+
 </head>
 
 <body>
 
 <h1>Laporan Praktikum OOP Dart</h1>
-<p style="text-align:center;">
+
+<p align="center">
 Nama : <b>Muhammad Bagas Putra Andeza</b><br>
 NIM : <b>251410003</b><br>
 Kelas : <b>SI2A</b>
 </p>
 
+
 <div class="section">
-<h2>Jenis - Jenis Constructor</h2>
+
+<h2>Jenis-Jenis Constructor</h2>
 
 <ul>
 <li>Default Constructor</li>
@@ -89,13 +104,16 @@ Kelas : <b>SI2A</b>
 
 
 <div class="section">
+
 <h2>Named Constructor</h2>
 
-<div class="code">
+<button onclick="lihatKode('kode1')">Lihat Kode</button>
+
+<div id="kode1" class="code">
 
 // Nama : Muhammad Bagas Putra Andeza
-// Nim  : 251410003
-// Kelas: SI2A
+// Nim : 251410003
+// Kelas : SI2A
 
 class Mobil {
 
@@ -105,8 +123,8 @@ int tahun;
 Mobil(this.merk,this.tahun);
 
 Mobil.baru(){
-merk="BMW";
-tahun=2023;
+merk = "BMW";
+tahun = 2023;
 }
 
 }
@@ -123,8 +141,6 @@ print(m2.merk);
 
 </div>
 
-<button>Lihat Kode</button>
-
 </div>
 
 
@@ -132,13 +148,11 @@ print(m2.merk);
 
 <h2>Constant Constructor</h2>
 
-<div class="code">
+<button onclick="lihatKode('kode2')">Lihat Kode</button>
 
-// Nama : Muhammad Bagas Putra Andeza
-// Nim  : 251410003
-// Kelas: SI2A
+<div id="kode2" class="code">
 
-class Warna {
+class Warna{
 
 final int r,g,b;
 
@@ -157,8 +171,6 @@ print(identical(merah,merah2));
 
 </div>
 
-<button>Lihat Kode</button>
-
 </div>
 
 
@@ -166,11 +178,9 @@ print(identical(merah,merah2));
 
 <h2>Multiple Constructor</h2>
 
-<div class="code">
+<button onclick="lihatKode('kode3')">Lihat Kode</button>
 
-// Nama : Muhammad Bagas Putra Andeza
-// Nim  : 251410003
-// Kelas: SI2A
+<div id="kode3" class="code">
 
 class Mahasiswa{
 
@@ -180,12 +190,16 @@ String nim;
 Mahasiswa(this.nama,this.nim);
 
 Mahasiswa.tanpaNama(){
-nama="No Name";
+
+nama="Tanpa Nama";
 nim="00000";
+
 }
 
 void info(){
+
 print("Mahasiswa: $nama - $nim");
+
 }
 
 }
@@ -202,7 +216,18 @@ m2.info();
 
 </div>
 
-<button>Lihat Kode</button>
+</div>
+
+
+<div class="section">
+
+<h2>Pengantar Enkapsulasi</h2>
+
+<ul>
+<li>Menyembunyikan detail implementasi</li>
+<li>Menjaga keamanan data</li>
+<li>Mengontrol akses data</li>
+</ul>
 
 </div>
 
@@ -211,11 +236,9 @@ m2.info();
 
 <h2>Getter dan Setter</h2>
 
-<div class="code">
+<button onclick="lihatKode('kode4')">Lihat Kode</button>
 
-// Nama : Muhammad Bagas Putra Andeza
-// Nim  : 251410003
-// Kelas: SI2A
+<div id="kode4" class="code">
 
 class Produk{
 
@@ -259,8 +282,6 @@ print(p.nama);
 
 </div>
 
-<button>Lihat Kode</button>
-
 </div>
 
 
@@ -268,11 +289,9 @@ print(p.nama);
 
 <h2>Studi Kasus Sistem Login</h2>
 
-<div class="code">
+<button onclick="lihatKode('kode5')">Lihat Kode</button>
 
-// Nama : Muhammad Bagas Putra Andeza
-// Nim  : 251410003
-// Kelas: SI2A
+<div id="kode5" class="code">
 
 class User{
 
@@ -303,8 +322,6 @@ print("Login gagal");
 
 </div>
 
-<button>Lihat Kode</button>
-
 </div>
 
 
@@ -312,11 +329,9 @@ print("Login gagal");
 
 <h2>Latihan Bank</h2>
 
-<div class="code">
+<button onclick="lihatKode('kode6')">Lihat Kode</button>
 
-// Nama : Muhammad Bagas Putra Andeza
-// Nim  : 251410003
-// Kelas: SI2A
+<div id="kode6" class="code">
 
 class RekeningBank{
 
@@ -360,8 +375,6 @@ r.cekSaldo();
 
 </div>
 
-<button>Lihat Kode</button>
-
 </div>
 
 
@@ -371,11 +384,9 @@ r.cekSaldo();
 
 <ol>
 
-<li>Dart memiliki berbagai jenis constructor untuk fleksibilitas objek.</li>
-
+<li>Dart memiliki berbagai jenis constructor.</li>
 <li>Enkapsulasi melindungi data menggunakan private field.</li>
-
-<li>Getter dan Setter memberikan kontrol akses data.</li>
+<li>Getter dan setter mengontrol akses data.</li>
 
 </ol>
 
