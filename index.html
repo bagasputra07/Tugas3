@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Laporan OOP Dart - Muhammad Bagas Putra Andeza</title>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+margin:0;
+background:linear-gradient(180deg,#c9d6e6,#e7edf5);
+padding:30px;
+}
+
+h1{
+text-align:center;
+color:#2c3e50;
+}
+
+.section{
+background:white;
+padding:25px;
+margin-bottom:25px;
+border-radius:10px;
+box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+.section h2{
+border-left:5px solid #3b82f6;
+padding-left:10px;
+color:#2c3e50;
+}
+
+.code{
+background:#f4f6f9;
+padding:15px;
+border-radius:8px;
+overflow:auto;
+font-family:monospace;
+white-space:pre-wrap;
+margin-top:15px;
+}
+
+button{
+margin-top:10px;
+padding:8px 15px;
+background:#3b82f6;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+}
+
+button:hover{
+background:#2563eb;
+}
+
+ul{
+margin-top:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>Laporan Praktikum OOP Dart</h1>
+<p style="text-align:center;">
+Nama : <b>Muhammad Bagas Putra Andeza</b><br>
+NIM : <b>251410003</b><br>
+Kelas : <b>SI2A</b>
+</p>
+
+<div class="section">
+<h2>Jenis - Jenis Constructor</h2>
+
+<ul>
+<li>Default Constructor</li>
+<li>Named Constructor</li>
+<li>Parameterized Constructor</li>
+<li>Constant Constructor</li>
+<li>Factory Constructor</li>
+</ul>
+
+</div>
+
+
+<div class="section">
+<h2>Named Constructor</h2>
+
+<div class="code">
+
+// Nama : Muhammad Bagas Putra Andeza
+// Nim  : 251410003
+// Kelas: SI2A
+
+class Mobil {
+
+String merk;
+int tahun;
+
+Mobil(this.merk,this.tahun);
+
+Mobil.baru(){
+merk="BMW";
+tahun=2023;
+}
+
+}
+
+void main(){
+
+var m1 = Mobil("Toyota",2022);
+var m2 = Mobil.baru();
+
+print(m1.merk);
+print(m2.merk);
+
+}
+
+</div>
+
+<button>Lihat Kode</button>
+
+</div>
+
+
+<div class="section">
+
+<h2>Constant Constructor</h2>
+
+<div class="code">
+
+// Nama : Muhammad Bagas Putra Andeza
+// Nim  : 251410003
+// Kelas: SI2A
+
+class Warna {
+
+final int r,g,b;
+
+const Warna(this.r,this.g,this.b);
+
+}
+
+void main(){
+
+const merah = Warna(255,0,0);
+const merah2 = Warna(255,0,0);
+
+print(identical(merah,merah2));
+
+}
+
+</div>
+
+<button>Lihat Kode</button>
+
+</div>
+
+
+<div class="section">
+
+<h2>Multiple Constructor</h2>
+
+<div class="code">
+
+// Nama : Muhammad Bagas Putra Andeza
+// Nim  : 251410003
+// Kelas: SI2A
+
+class Mahasiswa{
+
+String nama;
+String nim;
+
+Mahasiswa(this.nama,this.nim);
+
+Mahasiswa.tanpaNama(){
+nama="No Name";
+nim="00000";
+}
+
+void info(){
+print("Mahasiswa: $nama - $nim");
+}
+
+}
+
+void main(){
+
+var m1 = Mahasiswa("Bagas","251410003");
+var m2 = Mahasiswa.tanpaNama();
+
+m1.info();
+m2.info();
+
+}
+
+</div>
+
+<button>Lihat Kode</button>
+
+</div>
+
+
+<div class="section">
+
+<h2>Getter dan Setter</h2>
+
+<div class="code">
+
+// Nama : Muhammad Bagas Putra Andeza
+// Nim  : 251410003
+// Kelas: SI2A
+
+class Produk{
+
+String _nama;
+double _harga;
+
+Produk(this._nama,this._harga);
+
+String get nama => _nama;
+double get harga => _harga;
+
+set nama(String value){
+
+if(value.length >=3){
+_nama=value;
+}
+
+}
+
+set harga(double value){
+
+if(value>0){
+_harga=value;
+}
+
+}
+
+}
+
+void main(){
+
+var p = Produk("Laptop",5000);
+
+print(p.nama);
+
+p.nama="Monitor";
+
+print(p.nama);
+
+}
+
+</div>
+
+<button>Lihat Kode</button>
+
+</div>
+
+
+<div class="section">
+
+<h2>Studi Kasus Sistem Login</h2>
+
+<div class="code">
+
+// Nama : Muhammad Bagas Putra Andeza
+// Nim  : 251410003
+// Kelas: SI2A
+
+class User{
+
+String _username;
+String _password;
+
+User(this._username,this._password);
+
+bool login(String username,String password){
+
+return username==_username && password==_password;
+
+}
+
+}
+
+void main(){
+
+var user = User("admin","12345");
+
+if(user.login("admin","12345")){
+print("Login berhasil");
+}else{
+print("Login gagal");
+}
+
+}
+
+</div>
+
+<button>Lihat Kode</button>
+
+</div>
+
+
+<div class="section">
+
+<h2>Latihan Bank</h2>
+
+<div class="code">
+
+// Nama : Muhammad Bagas Putra Andeza
+// Nim  : 251410003
+// Kelas: SI2A
+
+class RekeningBank{
+
+String nomor;
+double saldo;
+
+RekeningBank(this.nomor,this.saldo);
+
+void deposit(double jumlah){
+
+saldo += jumlah;
+
+}
+
+void tarik(double jumlah){
+
+if(saldo>=jumlah){
+saldo -= jumlah;
+}
+
+}
+
+void cekSaldo(){
+
+print("Saldo: $saldo");
+
+}
+
+}
+
+void main(){
+
+var r = RekeningBank("123456",500000);
+
+r.deposit(200000);
+r.tarik(100000);
+
+r.cekSaldo();
+
+}
+
+</div>
+
+<button>Lihat Kode</button>
+
+</div>
+
+
+<div class="section">
+
+<h2>Kesimpulan</h2>
+
+<ol>
+
+<li>Dart memiliki berbagai jenis constructor untuk fleksibilitas objek.</li>
+
+<li>Enkapsulasi melindungi data menggunakan private field.</li>
+
+<li>Getter dan Setter memberikan kontrol akses data.</li>
+
+</ol>
+
+</div>
+
+</body>
+</html>
