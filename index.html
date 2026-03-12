@@ -543,28 +543,22 @@ void main() {
         <div class="card" id="person-card">
             <div class="section-title">🔒 Enkapsulasi – Class Person</div>
             <div class="code-block">
-                <pre>// Nama   : Muhammad Bagas Putra Andeza
+                <pre>// Nama   : Muhammad Bagas putra andeza 
 // Nim    : 251410003
 // Kelas  : Si2A 
 
 class Person {
-  String _nama;
-  int umur;
-  
-  Person(this._nama, this.umur);
-  
-  set setNama(String nama) { _nama = nama; }
-  void ubahNama(String nama) { _nama = nama; }
-  String getNama() { return _nama; }
+  String _nama; 
+  int umur;      
+
+  Person(this._nama, this.umur); 
+
+  void info() => print('Nama: $_nama, Umur: $umur'); 
 }
 
 void main() {
-  Person p1 = Person("Muhammad Bagas Putra Andeza", 18);
-  print('Umur: ${p1.umur}');
-  p1.ubahNama('Bagas');
-  print('Nama (via Method): ${p1.getNama()}');
-  p1.setNama = 'Muhammad Bagas Putra Andeza';
-  print('Nama (via Setter): ${p1.getNama()}');
+  var p1 = Person('Muhammad Bagas putra andeza', 18); 
+  p1.info(); 
 }</pre>
             </div>
             <button class="run-btn" onclick="openModal('person')">
