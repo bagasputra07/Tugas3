@@ -347,22 +347,38 @@ void main() {
     <div class="card">
         <div class="section-title">🔒 Enkapsulasi – Class Person (private _nama)</div>
         <div class="code-block">
-<pre>// Nama : Muhammad Bagas putra andeza
-// Nim  : 251410003
-// Kelas: SI2A
+<pre>// Nama   : Muhammad Bagas  Putra Andeza
+// Nim    : 251410003
+// Kelas  : Si2A 
 
 class Person {
-    String _nama;   // private
-    int umur;       // public
+  String _nama;
+  int umur;
+  
+  Person(this._nama, this.umur);
+  
+  set setNama(String nama) {
+    _nama = nama;
+  }
 
-    Person(this._nama, this.umur);
+  void ubahNama(String nama) {
+    _nama = nama;
+  }
 
-    void info() => print('Nama: $_nama, Umur: $umur');
+  String getNama() {
+    return _nama;
+  }
 }
 
 void main() {
-    var p1 = Person('Muhammad Bagas putra andeza', 20);
-    p1.info();
+  Person p1 = Person("Azriel Miracle Yuandre", 20);
+  print('Umur: ${p1.umur}');
+  
+  p1.ubahNama('Miracle');
+  print('Nama (via Method): ${p1.getNama()}');
+  
+  p1.setNama = 'Azriel Miracle Yuandre';
+  print('Nama (via Setter): ${p1.getNama()}');
 }</pre>
         </div>
     </div>
