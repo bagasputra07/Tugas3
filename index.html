@@ -1,5 +1,3 @@
-</body>
-</html>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -127,6 +125,187 @@
             font-size: 0.95rem;
             color: #4a5f7a;
         }
+        
+        /* Tombol Run */
+        .run-btn {
+            background: linear-gradient(135deg, #2a5298, #1e3c72);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 15px rgba(42, 82, 152, 0.3);
+        }
+        
+        .run-btn:hover {
+            background: linear-gradient(135deg, #1e3c72, #0f2a4f);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(42, 82, 152, 0.4);
+        }
+        
+        .run-btn:active {
+            transform: translateY(0);
+        }
+        
+        /* Modal/Popup Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal-content {
+            background: white;
+            margin: 5% auto;
+            padding: 30px;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            animation: slideIn 0.4s;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #2a5298;
+        }
+        
+        .modal-header h3 {
+            color: #1e2b3a;
+            font-size: 1.5rem;
+        }
+        
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.3s;
+        }
+        
+        .close-btn:hover {
+            color: #2a5298;
+        }
+        
+        .modal-body {
+            margin-bottom: 25px;
+        }
+        
+        .link-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 5px;
+        }
+        
+        .link-item {
+            background: linear-gradient(145deg, #f5f7fa, #e9ecf2);
+            padding: 15px 20px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+            border-left: 5px solid #2a5298;
+        }
+        
+        .link-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .link-item span {
+            font-weight: 600;
+            color: #1e2b3a;
+            font-size: 1rem;
+        }
+        
+        .link-item a {
+            background: #2a5298;
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .link-item a:hover {
+            background: #1e3c72;
+            transform: scale(1.05);
+        }
+        
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 2px dashed #a0c0e0;
+        }
+        
+        .modal-footer button {
+            background: #f0f4f8;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1e2b3a;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .modal-footer button:hover {
+            background: #2a5298;
+            color: white;
+        }
+        
+        /* Active link highlight */
+        .link-item.active {
+            background: #d4e3fd;
+            border-left: 5px solid #ff6b6b;
+        }
     </style>
 </head>
 <body>
@@ -149,8 +328,8 @@
         </ul>
     </div>
 
-    <!-- CLASS BUKU (contoh awal) -->
-    <div class="card">
+    <!-- CLASS BUKU -->
+    <div class="card" id="buku-card">
         <div class="section-title">📖 Class Buku (Constructor Dasar)</div>
         <div class="code-block">
 <pre>// Nama : Muhammad Bagas putra andeza
@@ -168,7 +347,9 @@ void main() {
 }</pre>
         </div>
         <div class="output-note">📌 Output: Judul Buku: Belajar Dart OOP jilid 1 Bersama Babe</div>
-</div>
+        <button class="run-btn" onclick="openModal('buku')">
+            <span>▶</span> Run di DartPad
+        </button>
     </div>
 
     <!-- JENIS CONSTRUCTOR -->
@@ -183,8 +364,8 @@ void main() {
         </ol>
     </div>
 
-    <!-- NAMED CONSTRUCTOR (MOBIL) + IDENTITAS BARU -->
-    <div class="card">
+    <!-- NAMED CONSTRUCTOR MOBIL -->
+    <div class="card" id="mobil-card">
         <div class="section-title">🚗 Named Constructor – Class Mobil</div>
         <div class="code-block">
 <pre>// Nama : Muhammad Bagas putra andeza
@@ -197,16 +378,8 @@ class Mobil {
     String merk;
     int tahun;
 
-    // Parameterized constructor
     Mobil(this.merk, this.tahun);
-
-    // Named constructor .baru (tanpa parameter)
-    Mobil.baru() {
-        merk = 'Bmw';
-        tahun = 2023;
-    }
-
-    // Named constructor .dariJson (untuk Map)
+    Mobil.baru() { merk = 'Bmw'; tahun = 2023; }
     Mobil.dariJson(Map data) {
         merk = data['merk'] ?? 'Toyota';
         tahun = data['tahun'] ?? 2020;
@@ -218,30 +391,28 @@ class Mobil {
 
 void main() {
     print('--- PRAKTIKUM KELAS MOBIL ---');
-
     var m1 = Mobil('Ferrari', 2022);
     print('Mobil 1 (default): $m1');
-
     var m2 = Mobil.baru();
     print('Mobil 2 (.baru): $m2');
-
     String dataJson = '{ "merk": "Lamborghini", "tahun": 2023 }';
     Map jsonData = jsonDecode(dataJson);
     var m3 = Mobil.dariJson(jsonData);
     print('Mobil 3 (.dariJson): $m3');
-
     Map dataLain = { 'merk': 'Porsche', 'tahun': 2024 };
     var m4 = Mobil.dariJson(dataLain);
     print('Mobil 4 (.dariJson): $m4');
-
     print('--- SELESAI DEMONSTRASI ---');
 }</pre>
         </div>
         <div class="output-note">✅ Demonstrasi named constructor .baru dan .dariJson</div>
+        <button class="run-btn" onclick="openModal('mobil')">
+            <span>▶</span> Run di DartPad
+        </button>
     </div>
 
-    <!-- CONSTANT CONSTRUCTOR (WARNA) -->
-    <div class="card">
+    <!-- CONSTANT CONSTRUCTOR WARNA -->
+    <div class="card" id="warna-card">
         <div class="section-title">🎨 Constant Constructor – Class Warna</div>
         <div class="code-block">
 <pre>// Nama : Muhammad Bagas putra andeza
@@ -251,25 +422,26 @@ void main() {
 class Warna {
     final int r, g, b;
     const Warna(this.r, this.g, this.b);
-
     @override
     String toString() => 'Warna(r: $r, g: $g, b: $b)';
 }
 
 void main() {
     const scallet = Warna(255, 0, 0);
-    const scalletLagi = Warna(254, 0, 0); // berbeda nilai
-
+    const scalletLagi = Warna(254, 0, 0);
     print(scallet);
     print(scalletLagi);
-    print('Apakah instance sama? ${identical(scallet, scalletLagi)}'); // false
+    print('Apakah instance sama? ${identical(scallet, scalletLagi)}');
 }</pre>
         </div>
         <div class="output-note">📌 Objek const dengan nilai berbeda akan berbeda instance.</div>
+        <button class="run-btn" onclick="openModal('warna')">
+            <span>▶</span> Run di DartPad
+        </button>
     </div>
 
-    <!-- INITIALIZER LIST (TITIK) + PERBAIKAN NAMA -->
-    <div class="card">
+    <!-- INITIALIZER LIST TITIK -->
+    <div class="card" id="titik-card">
         <div class="section-title">📐 Initializer List – Class Titik</div>
         <div class="code-block">
 <pre>// Nama : Muhammad Bagas putra andeza
@@ -279,9 +451,8 @@ void main() {
 class Titik {
     final double x, y;
 
-    // Menggunakan initializer list untuk validasi / transformasi
     Titik(double x, double y) : 
-        x = x < 0 ? 0 : x,   // jika negatif jadikan 0
+        x = x < 0 ? 0 : x,
         y = y < 0 ? 0 : y {
             print('Titik dibuat di ($this.x, $this.y)');
         }
@@ -291,22 +462,23 @@ void main() {
     print('Membuat objek Titik pertama:');
     var t1 = Titik(8.0, 3.5);
     print('Titik 1: x = ${t1.x}, y = ${t1.y}');
-
     print('\nMembuat objek Titik kedua dengan nilai negatif:');
     var t2 = Titik(-8.0, 3.5);
     print('Titik 2: x = ${t2.x}, y = ${t2.y}');
-
     print('\nMembuat objek Titik ketiga dengan negatif di kedua koordinat:');
     var t3 = Titik(-2.0, -4.0);
     print('Titik 3: x = ${t3.x}, y = ${t3.y}');
 }</pre>
         </div>
         <div class="output-note">✅ Initializer list memastikan nilai negatif diubah menjadi 0.</div>
+        <button class="run-btn" onclick="openModal('titik')">
+            <span>▶</span> Run di DartPad
+        </button>
     </div>
 
-    <!-- PRAKTIK MULTIPLE CONSTRUCTOR (MAHASISWA) + INFO METHOD -->
-    <div class="card">
-        <div class="section-title">👨‍🎓 Praktik 1 – Class Mahasiswa (multiple constructor)</div>
+    <!-- PRAKTIK MULTIPLE CONSTRUCTOR MAHASISWA -->
+    <div class="card" id="mahasiswa-card">
+        <div class="section-title">👨‍🎓 Praktik 1 – Class Mahasiswa</div>
         <div class="code-block">
 <pre>// Nama : Muhammad Bagas putra andeza
 // Nim  : 251410003
@@ -317,17 +489,14 @@ class Mahasiswa {
     String? nim;
 
     Mahasiswa(this.nama, this.nim);
-
     Mahasiswa.dariMap(Map data) {
         nama = data['nama'];
         nim = data['nim'];
     }
-
     Mahasiswa.tanpaNama() {
         nama = 'No Namenor';
         nim = '000001';
     }
-
     void info() => print('Mahasiswa: $nama, NIM: $nim');
 }
 
@@ -335,20 +504,22 @@ void main() {
     var m1 = Mahasiswa('Muhammad Bagas putra andeza', '251410003');
     var m2 = Mahasiswa.dariMap({'nama': 'Andeza', 'nim': '251410010'}); 
     var m3 = Mahasiswa.tanpaNama();
-
     m1.info();
     m2.info();
     m3.info();
 }</pre>
         </div>
         <div class="output-note">👤 Menampilkan tiga cara instansiasi berbeda.</div>
+        <button class="run-btn" onclick="openModal('mahasiswa')">
+            <span>▶</span> Run di DartPad
+        </button>
     </div>
 
-    <!-- ENKAPSULASI DASAR (PERSON) -->
-    <div class="card">
-        <div class="section-title">🔒 Enkapsulasi – Class Person (private _nama)</div>
+    <!-- ENKAPSULASI DASAR PERSON -->
+    <div class="card" id="person-card">
+        <div class="section-title">🔒 Enkapsulasi – Class Person</div>
         <div class="code-block">
-<pre>// Nama   : Muhammad Bagas  Putra Andeza
+<pre>// Nama   : Muhammad Bagas Putra Andeza
 // Nim    : 251410003
 // Kelas  : Si2A 
 
@@ -358,35 +529,28 @@ class Person {
   
   Person(this._nama, this.umur);
   
-  set setNama(String nama) {
-    _nama = nama;
-  }
-
-  void ubahNama(String nama) {
-    _nama = nama;
-  }
-
-  String getNama() {
-    return _nama;
-  }
+  set setNama(String nama) { _nama = nama; }
+  void ubahNama(String nama) { _nama = nama; }
+  String getNama() { return _nama; }
 }
 
 void main() {
   Person p1 = Person("Muhammad Bagas Putra Andeza", 18);
   print('Umur: ${p1.umur}');
-  
-  p1.ubahNama('Miracle');
+  p1.ubahNama('Bagas');
   print('Nama (via Method): ${p1.getNama()}');
-  
-  p1.setNama = 'Azriel Miracle Yuandre';
+  p1.setNama = 'Muhammad Bagas Putra Andeza';
   print('Nama (via Setter): ${p1.getNama()}');
 }</pre>
         </div>
+        <button class="run-btn" onclick="openModal('person')">
+            <span>▶</span> Run di DartPad
+        </button>
     </div>
 
-    <!-- GETTER SETTER (PERSON + PRODUK) -->
-    <div class="card">
-        <div class="section-title">⚙️ Getter & Setter (dengan validasi)</div>
+    <!-- GETTER SETTER PERSON -->
+    <div class="card" id="getter-card">
+        <div class="section-title">⚙️ Getter & Setter</div>
         <div class="sub-title">🔹 Contoh Person</div>
         <div class="code-block">
 <pre>// Nama : Muhammad Bagas putra andeza
@@ -396,31 +560,29 @@ void main() {
 class Person {
     String _nama;
     int umur;
-
     Person(this._nama, this.umur);
-
-    // Setter (menggunakan keyword set)
     set setName(String nama) => _nama = nama;
-
-    // Setter via method
     void ubahNama(String nama) => _nama = nama;
-
-    // Getter via method
     String getName() => _nama;
 }
 
 void main() {
     Person p1 = Person('Muhammad Bagas putra andeza', 20);
     print('Umur: ${p1.umur}');
-
     p1.ubahNama('Bagas');
     print('Nama (via Method): ${p1.getName()}');
-
     p1.setName = 'Muhammad Bagas putra andeza';
     print('Nama (via Setter): ${p1.getName()}');
 }</pre>
         </div>
-        <div class="sub-title" style="margin-top:30px;">🔹 Class Produk (validasi)</div>
+        <button class="run-btn" onclick="openModal('getter')">
+            <span>▶</span> Run di DartPad
+        </button>
+    </div>
+
+    <!-- CLASS PRODUK -->
+    <div class="card" id="produk-card">
+        <div class="sub-title">🔹 Class Produk (Validasi)</div>
         <div class="code-block">
 <pre>// Nama : Muhammad Bagas putra andeza
 // Nim  : 251410003
@@ -429,26 +591,16 @@ void main() {
 class Produk {
     String _nama;
     double _harga;
-
     Produk(this._nama, this._harga);
-
     String get nama => _nama;
     double get harga => _harga;
-
     set nama(String value) {
-        if (value.length >= 3) {
-            _nama = value;
-        } else {
-            print('Gagal: Nama minimal 3 karakter.');
-        }
+        if (value.length >= 3) { _nama = value; } 
+        else { print('Gagal: Nama minimal 3 karakter.'); }
     }
-
     set harga(double value) {
-        if (value > 0) {
-            _harga = value;
-        } else {
-            print('Gagal: Harga harus > 0.');
-        }
+        if (value > 0) { _harga = value; } 
+        else { print('Gagal: Harga harus > 0.'); }
     }
 }
 
@@ -456,22 +608,23 @@ void main() {
     var p1 = Produk('Asus ROG', 3500.0);
     print('--- Awal ---');
     print('Nama: ${p1.nama}, Harga: Rp ${p1.harga}');
-
     print('\n--- Update ---');
     p1.nama = 'Monitor 144hz';
     p1.harga = 12000.0;
     print('Setelah update: ${p1.nama}');
-
     print('\n--- Uji validasi ---');
-    p1.nama = 'AC';      // gagal
-    p1.harga = -1000.0;  // gagal
+    p1.nama = 'AC';
+    p1.harga = -1000.0;
 }</pre>
         </div>
+        <button class="run-btn" onclick="openModal('produk')">
+            <span>▶</span> Run di DartPad
+        </button>
     </div>
 
-    <!-- CLASS USER DENGAN SETTER VALIDASI (LENGKAP) -->
-    <div class="card">
-        <div class="section-title">👥 Class User dengan validasi</div>
+    <!-- CLASS USER -->
+    <div class="card" id="user-card">
+        <div class="section-title">👥 Class User</div>
         <div class="code-block">
 <pre>// Nama : Muhammad Bagas putra andeza
 // Nim  : 251410003
@@ -481,39 +634,20 @@ class User {
     String _username;
     String _password;
     String _email;
-
     User(this._username, this._password, this._email);
-
-    // Getter
     String get username => _username;
-    String get password => _password;
-    String get email => _email;
-
-    // Setter dengan validasi
     set username(String v) {
-        if (v.length >= 5) {
-            _username = v;
-        } else {
-            print('Username minimal 5 karakter');
-        }
+        if (v.length >= 5) { _username = v; } 
+        else { print('Username minimal 5 karakter'); }
     }
-
     set password(String v) {
-        if (v.length >= 8) {
-            _password = v;
-        } else {
-            print('Password minimal 8 karakter');
-        }
+        if (v.length >= 8) { _password = v; } 
+        else { print('Password minimal 8 karakter'); }
     }
-
     set email(String v) {
-        if (v.contains('@')) {
-            _email = v;
-        } else {
-            print('Format email salah (Harus mengandung @)');
-        }
+        if (v.contains('@')) { _email = v; } 
+        else { print('Format email salah (Harus mengandung @)'); }
     }
-
     void info() => print('User: $_username, Pass: $_password, Email: $_email');
 }
 
@@ -525,11 +659,14 @@ void main() {
     u1.info();
 }</pre>
         </div>
+        <button class="run-btn" onclick="openModal('user')">
+            <span>▶</span> Run di DartPad
+        </button>
     </div>
 
-    <!-- STUDI KASUS LOGIN + GANTI PASSWORD -->
-    <div class="card">
-        <div class="section-title">🔐 Studi Kasus Login & Ganti Password</div>
+    <!-- STUDI KASUS LOGIN -->
+    <div class="card" id="studi-card">
+        <div class="section-title">🔐 Studi Kasus Login</div>
         <div class="code-block">
 <pre>// Nama : Muhammad Bagas putra andeza
 // Nim  : 251410003
@@ -538,107 +675,6 @@ void main() {
 class User {
     String _username;
     String _password;
-
     User(this._username, this._password);
-
     String get username => _username;
-
-    bool login(String username, String password) {
-        return _username == username && _password == password;
-    }
-
-    void gantiPassword(String lama, String baru) {
-        if (_password == lama) {
-            if (baru.length >= 8) {
-                _password = baru;
-                print('Password berhasil diubah.');
-            } else {
-                print('Gagal: Password baru minimal 8 karakter.');
-            }
-        } else {
-            print('Gagal: Password lama tidak cocok.');
-        }
-    }
-}
-
-void main() {
-    print('--- MEMBUAT AKUN BARU ---');
-    final User u1 = User('super_Bagas', 'rahasia123');
-
-    print('--- PROSES LOGIN ---');
-    if (u1.login('super_Bagas', 'rahasia123')) {
-        print('✅ Selamat datang! Anda berhasil masuk.');
-    }
-
-    print('\n--- PERUBAHAN KATA SANDI ---');
-    u1.gantiPassword('rahasia123', 'superSecret789'); // sukses
-    u1.gantiPassword('salahPass', 'cobaCoba');        // gagal
-}</pre>
-        </div>
-    </div>
-
-    <!-- LATIHAN BANK -->
-    <div class="card">
-        <div class="section-title">🏦 Latihan Bank – RekeningBank</div>
-        <div class="code-block">
-<pre>// Nama : Muhammad Bagas putra andeza
-// Nim  : 251410003
-// Kelas: SI2A
-
-class RekeningBank {
-    String _nomorRekening;
-    double _saldo;
-
-    RekeningBank(this._nomorRekening, this._saldo);
-
-    void deposit(double jml) {
-        if (jml > 0) {
-            _saldo += jml;
-            print('Deposit Rp $jml Berhasil.');
-        }
-    }
-
-    void tarik(double jml) {
-        if (jml > 0 && _saldo >= jml) {
-            _saldo -= jml;
-            print('Tarik Rp $jml Berhasil.');
-        } else {
-            print('Gagal: Saldo tidak cukup atau input tidak valid.');
-        }
-    }
-
-    void cekSaldo() {
-        print('Rekening: $_nomorRekening | Saldo: Rp $_saldo');
-    }
-}
-
-void main() {
-    print('--- TRANSAKSI PERTAMA ---');
-    var rekeningSaya = RekeningBank('1234-5678-90', 5000000);
-    rekeningSaya.cekSaldo();
-
-    print('\n--- MELAKUKAN PENARIKAN ---');
-    rekeningSaya.tarik(1000000);
-    rekeningSaya.cekSaldo();
-}</pre>
-        </div>
-    </div>
-
-    <!-- KESIMPULAN -->
-    <div class="card" style="background: #d9e6f2;">
-        <div class="section-title">📌 Kesimpulan</div>
-        <ul style="font-size:1.1rem;">
-            <li>Dart memiliki berbagai jenis constructor (default, named, constant, dll).</li>
-            <li>Enkapsulasi menggunakan <code>_</code> (private) menjaga data.</li>
-            <li>Getter & setter memberikan kontrol akses & validasi.</li>
-        </ul>
-        <hr>
-        <p style="text-align:right; font-weight:600;">— Muhammad Bagas putra andeza / 251410003 / SI2A —</p>
-    </div>
-
-    <div class="footer-note">
-        ⚡ Kode telah disesuaikan dengan identitas: <strong>Muhammad Bagas putra andeza (251410003)</strong> – Kelas SI2A
-    </div>
-</div>
-</body>
-        </html>
+    
